@@ -7,7 +7,7 @@ import { download } from '../assets';
 import { downloadCanvasToImage, reader } from '../config/helpers';
 import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
-import AIPicker from "../components/AIPicker"
+// import AIPicker from "../components/AIPicker"
 import ColorPicker from "../components/ColorPicker"
 import CustomButton from "../components/CustomButton"
 import FilePicker from "../components/FilePicker"
@@ -52,33 +52,33 @@ const Customizer = () => {
     }
   }
 
-  const handleSubmit = async (type) => {
-    if (!prompt) return alert("Please enter a prompt");
-    else {
-      try {
-        setGeneratingImg(true);
+  // const handleSubmit = async (type) => {
+  //   if (!prompt) return alert("Please enter a prompt");
+  //   else {
+  //     try {
+  //       setGeneratingImg(true);
 
-        const response = await fetch("https://three-d-shirt.onrender.com/api/v1/dalle", {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            prompt,
-          })
-        })
+  //       const response = await fetch('https://three-d-shirt.onrender.com/api/v1/dalle', {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json'
+  //         },
+  //         body: JSON.stringify({
+  //           prompt,
+  //         })
+  //       })
 
-        const data = await response.json();
+  //       const data = await response.json();
 
-        handleDecals(type, `data:image/png;base64,${data.photo}`)
-      } catch (error) {
-        alert(error)
-      } finally {
-        setGeneratingImg(false);
-        setActiveEditorTab("");
-      }
-    }
-  }
+  //       handleDecals(type, `data:image/png;base64,${data.photo}`)
+  //     } catch (error) {
+  //       alert(error)
+  //     } finally {
+  //       setGeneratingImg(false);
+  //       setActiveEditorTab("");
+  //     }
+  //   }
+  // }
 
   const handleDecals = (type, result) => {
     const decalType = DecalTypes[type];
