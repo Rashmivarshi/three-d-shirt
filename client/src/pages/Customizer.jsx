@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
-
 import config from '../config/config';
 import state from '../store';
 import { download } from '../assets';
@@ -13,6 +12,8 @@ import ColorPicker from "../components/ColorPicker"
 import CustomButton from "../components/CustomButton"
 import FilePicker from "../components/FilePicker"
 import Tab from "../components/Tab"
+
+
 
 const Customizer = () => {
   const snap = useSnapshot(state);
@@ -57,7 +58,7 @@ const Customizer = () => {
       try {
         setGeneratingImg(true);
 
-        const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        const response = await fetch("https://three-d-shirt.onrender.com/api/v1/dalle", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
